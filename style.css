@@ -1,28 +1,115 @@
 /* Test for new samples layout */
 
+.dropup {
+	display: none;
+}
+
+#sample-container {
+	display: flex;
+	max-width: 100%;
+	align-items: center;
+
+}
+
 .samplebod {
-	postion: absolute;
 	display: flex;
 	flex-direction: row;
 	flex flex-wrap: wrap;
 	padding-top: 10%;
+
+	/*
+	postion: absolute;
 	top: 110px;
 	bottom: 466px;
 	left: 1013px;
 	right: 1304px;
 	margin-left: 21%;
 
+  position: relative;
+  */
+
+	margin: 0 auto;
+
 }
 
 .samplecard {
 	height: 356px;
+	height: auto;
 	width: 291px;
 	margin: 15px;
 	border: 40px border-color:#dde2e5;
-	border-radius: 20px;
+	border-radius: 8px;
+	border-radius: 4px;
 	background-color: white;
 
+	box-shadow: 4px 4px rgba(128, 128, 128, 0.4);
+	padding: 10px 10px 15px;
+	background: oldlace;
+	background: #fdf2e7;
+	cursor: pointer;
+}
 
+.samplecard:hover {
+	box-shadow: 0px 0px 8px #66ccff;
+}
+
+.samplecard hr {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display: none;
+}
+
+.samplecard.category {
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 193px;
+	position: relative;
+	border-radius: 0;
+}
+
+.samplecard.category:hover {
+	box-shadow: 4px 4px rgba(128, 128, 128, 0.4);
+}
+
+#privacy {
+	background-image: url('images/privacy.jpg');
+}
+
+#privacy h3 {
+	top: 15px;
+	left: -8px;
+}
+
+#cybersecurity {
+	background-color: #2eb8b8;
+	background-image: url('images/cyber-security.jpg');
+	background-position: 0px -24px;
+	background-position: 0px 0px;
+}
+
+#cybersecurity h3 {
+	top: 75px;
+	letter-spacing: 1px;
+	text-shadow: 0px 0px 7px #111;
+	font-size: 30px;
+}
+
+#personal-finance {
+	background-image: url('images/personal-finance.jpg');
+}
+
+#personal-finance h3 {
+	top: 120px;
+	font-size: 26px;
+}
+
+.samplecard.category h3 {
+	position: relative;
+	font-family: 'Bevan', arial;
+	color: white;
+	text-align: center;
+	top: 0;
+	left: 0;
 }
 
 .tag {
@@ -33,10 +120,24 @@
 	margin-bottom: 15px;
 	margin-left: 15px;
 	text-transform: uppercase;
+
+	display: none;
 }
 
 .title {
 	text-align: center;
+	color: #457489;
+	color: #21374e;
+	color: #3a349e;
+	color: #534db3;
+	font-family: 'Bevan', arial;
+	letter-spacing: 1px;
+	font-weight: normal;
+	font-size: 18px;
+}
+
+.title:hover {
+	color: #007bff;
 }
 
 .descample {
@@ -47,11 +148,13 @@
 	margin-left: 10px;
 	word-wrap: break-word;
 	text-overflow: ellipsis;
-
+	max-height: 50px;
+	overflow: hidden;
+	/* white-space: nowrap; */
 }
 
 .finance {
-	color: darkgreen
+	color: darkgreen;
 }
 
 .cybersecurity {
@@ -59,7 +162,7 @@
 }
 
 .identity {
-	color:orangered;
+	color: orangered;
 }
 
 .privacy {
@@ -69,7 +172,7 @@
 /* Test for new samples layout */
 
 .navbar {
-	background: #57595D;
+	background: #192231;
 }
 
 .display {
@@ -88,7 +191,7 @@
 
 .nav-link:hover {
 	background: #f4f4f4;
-	color: #f97300;
+	color: #a13644;
 }
 
 .navbar-collapse {
@@ -124,7 +227,7 @@
 	min-width: 100%;
 	left: 0;
 	top: 0;
-	background: rgba(244, 244, 244, 0.60);
+	background: rgba(244, 244, 244, 0.45);
 }
 
 .description {
@@ -133,10 +236,11 @@
 	padding: 1em;
 
 
+
 }
 
 .description h1 {
-	color: #F97300;
+	color: #a13644;
 	font-size: 90px;
 	line-height: 70%;
 
@@ -147,8 +251,8 @@
 	position: absolute;
 	top: 53%;
 	right: 53%;
-	border: 1px solid #F97300;
-	background: #F97300;
+	border: 1px solid ##a13644;
+	background: #a13644;
 	color: #fff;
 }
 
@@ -156,8 +260,8 @@
 	position: absolute;
 	top: 53%;
 	left: 53%;
-	border: 1px solid #F97300;
-	background: #F97300;
+	border: 1px solid #a13644;
+	background: #a13644;
 	color: #fff;
 }
 
@@ -179,7 +283,7 @@
 
 	from,
 	to {
-		background-color: transparent
+		background-color: transparent;
 	}
 
 	50% {
@@ -189,37 +293,52 @@
 
 body {
 
-	background-image: radial-gradient(at bottom right, #21374e, #457489);
+	background-image: linear-gradient(to bottom, #494e6b, #555e81, #616e97, #6d7fae, #7890c6, #7592c8, #7293cb, #6f95cd, #5f86ba, #5078a6, #416a93, #335c81);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
 
 .profile {
-	position: relative;
-	float: left;
-	top: 30%;
+display: flex;
+margin-top: 7%;
+border: 20px solid white;
+background-color: white;
+width: 76%;
+margin-left: 15%;
 
 }
 
+.me{
+padding: 10px;
+border-width: 0%;
+border-radius: 100%;
+width: 400px;
+height: 400px;
+}
+
+.profile-img {
+	
+}
 
 .portmen {
-	positon: absolute;
+position: absolute;
 	left: 41%;
-margin-top: 10%;
-	
-		
-	}
+	margin-top: 10%;
 
-#filter{
+
+}
+
+#filter {
 	left: 50%;
 	margin-left: -350px;
 }
 
 .portfoliurb {
-	position: absolute;
+	margin-top: 50px;
+	top: 10%;
+	text-align: center;
 	color: white;
-	left: 29%;
-
+	margin-bottom: -10%x;
 }
 
 .samples {
@@ -329,8 +448,9 @@ a.btn-social,
 	width: 400px;
 	left: 50%;
 	left: 50%;
-	margin-left: -180px;
+	margin-left: -200px;
 
+	display: flex;
 
 }
 
@@ -384,7 +504,6 @@ a.btn-social,
 
 .btn-quora {
 	background-color: red;
-	position: absolute;
 
 	.btn-quora:hover {
 		background-color: lightcoral;
