@@ -4,7 +4,8 @@
 <head>
 	<link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="style.css" />
-	<title>Michael Osakwe - Content Portfolio</title>
+	<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Roboto:300i,400,500,700,700i|Source+Sans+Pro:300i,600" rel="stylesheet">
+	<title>Michael Osakwe - Writing Portfolio</title>
 </head>
 
 <body class="display blue-gradient">
@@ -24,7 +25,7 @@
 				<li class="nav-item">
 					<a class="nav-link " data-value="contact" href="/experience.html">Resume</a> </li>
 				<li class="nav-item">
-					<a class="nav-link " data-value="contact" href="#">Contact</a> </li>
+					<a class="nav-link " data-value="contact" href="/contact.html">Contact</a> </li>
 			</ul>
 		</div>
 	</nav>
@@ -40,8 +41,7 @@
 			<a href="#" class="finance dropdown-item">Personal Finance</a>
 		</div>
 	</div>
-
-	<h1 class="portfoliurb">Select samples shown below. For full portfolio visit my Muckrack or Contently profile</h1>
+	<h2 class="portfoliurb">Select samples shown below. For full portfolio visit my Muckrack or Contently profile</h2>
 	<div id="sample-container">
 		<div class="samplebod">
 			<div class="row">
@@ -245,6 +245,28 @@
 		$('.samplecard:not(.category)').click(function() {
 			window.location = $(this).find('a').first().attr('href');
 		});
+
+		$('.col').each(function(i, e) {
+			var cards = $(this).find('.samplecard');
+			$.each(cards.slice(2, (cards.length - 1)), function() {
+				$(this).hide();
+			});
+			if (i == 1) {
+				$(this).append('<a class="load_more"><b>Load More</b></a>');
+			}
+		});
+		$('.load_more').click(function() {
+			$('.col').each(function(i, e) {
+				var cards = $(this).find('.samplecard').not(':visible').slice(0, 2);
+				$.each(cards, function() {
+					$(this).show();
+				});
+				if ($('.samplecard').not(':visible').length == 0) {
+					$('.load_more').hide();
+				}
+			});
+		})
+
 		/*
 		$('.read_more').click(function() {
 		  window.location = $(this).parent().parent().find('a').first().attr('href');
